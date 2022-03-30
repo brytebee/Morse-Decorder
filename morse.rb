@@ -9,3 +9,22 @@ def decode_char(code)
 end
 
 puts decode_char('.-')
+
+def decode_word(code)
+  result = ''
+  arr = code.split
+  arr.each { |item| result += decode_char(item) }
+  result
+end
+
+puts decode_word('-- -.--')
+
+def decode(code)
+  result = ''
+  arr = code.split('   ')
+  arr.each { |item| result += " #{decode_word(item)}" }
+  result.strip
+end
+
+puts decode('-- -.--   -. .- -- .')
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
